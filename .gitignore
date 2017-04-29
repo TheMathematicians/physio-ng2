@@ -1,3 +1,34 @@
+### Angular ###
+## Angular ##
+# compiled output
+/dist
+/tmp
+/app/**/*.js
+/app/**/*.js.map
+
+# dependencies
+/node_modules
+/bower_components
+
+# IDEs and editors
+/.idea
+
+# misc
+/.sass-cache
+/connect.lock
+/coverage/*
+/libpeerconnection.log
+npm-debug.log
+testem.log
+/typings
+
+# e2e
+/e2e/*.js
+/e2e/*.map
+
+#System Files
+.DS_Store
+
 ### ApacheCordova ###
 # Apache Cordova generated files and directories
 bin/*
@@ -67,16 +98,16 @@ typings/
 # dotenv environment variables file
 .env
 
+
+### VisualStudioCode ###
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+
 # Project specific
-.idea/
-.vscode/
-.sass-cache/
-.versions/
-coverage/
-dist/
 tmp/
 temp/
-www/
 $RECYCLE.BIN/
-
-.DS_Store
+www/
