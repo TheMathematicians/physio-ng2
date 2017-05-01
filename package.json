@@ -1,7 +1,7 @@
 {
-  "name": "ionic-hello-world",
+  "name": "physio-ng2",
   "version": "0.0.0",
-  "author": "Ionic Framework",
+  "author": "TheMathematicians",
   "homepage": "http://ionicframework.com/",
   "private": true,
   "scripts": {
