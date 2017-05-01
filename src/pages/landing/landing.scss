@@ -31,14 +31,14 @@ page-landing {
         background: url(../../assets/images/dcp.jpg);
         background-size: cover;
         // background: #F44336;
-        // background: "../../assets/images/dcp.jpg";
+        background: "../../assets/images/dcp.jpg";
     }
-    .submit {
-        background: url(../../assets/images/ic_fingerprint_2x.png);
-        width: 80px;
-        height: 80px;
-        background-size: cover;
-    }
+    // .submit {
+    //     background: url(../../assets/images/ic_fingerprint_2x.png);
+    //     width: 80px;
+    //     height: 80px;
+    //     background-size: cover;
+    // }
     .mobile-item-cls {
         background-color: rgba(255, 255, 255, 0) !important;
         .item-inner {
@@ -56,6 +56,40 @@ page-landing {
     .mobile-input-cls {
         .text-input-md {
             font-size: x-large !important;
+        }
+    }
+
+    .submit-wrapper {
+        position: relative;
+        left: 25%;
+        .submit, .submit-blinker {
+            position: absolute;
+            left: 0;
+            background: url(../../assets/images/ic_fingerprint_2x.png);
+            width: 80px;
+            height: 80px;
+            background-size: 100% 100%;
+            border: none;
+        }
+        
+        .submit {
+            cursor: pointer;
+        }
+        
+        .submit-blinker {
+            @include animation(zoom-fade 2s infinite);
+        }
+    }
+
+    @include keyframes(zoom-fade) {
+        0% {
+            @include opacity(0.5);
+            @include transform(scale(1));
+        }
+        
+        100% {
+            @include opacity(0);
+            @include transform(scale(1.7));
         }
     }
 }
