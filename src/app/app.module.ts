@@ -2,6 +2,7 @@ import { NgModule, ErrorHandler } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { HttpModule } from '@angular/http';
 import { MyApp } from './app.component';
 
 import { LandingPage } from '../pages/landing/landing';
@@ -27,6 +28,7 @@ import { SplashScreen } from '@ionic-native/splash-screen';
     BrowserModule,
     IonicModule.forRoot(MyApp),
     FormsModule,
+    HttpModule,
     ReactiveFormsModule,
     AppointmentListModule
   ],

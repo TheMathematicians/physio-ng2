@@ -1,5 +1,16 @@
 <ion-card>
     <ion-card-content>
-        <p>This is an appointment tile</p>
+        <ion-row>
+            <p>{{appointment.problem}}</p>
+        </ion-row>
+        <br/>
+        <ion-item>
+            <ion-icon name="person" item-left large></ion-icon>
+            <h1>{{appointment.patientName}} - {{appointment.age}}yrs</h1>
+        </ion-item>
+        <ion-item>
+            <ion-icon name="call" item-left large></ion-icon>
+            <h2>{{appointment.mobile}}</h2>
+        </ion-item>
     </ion-card-content>
 </ion-card>
