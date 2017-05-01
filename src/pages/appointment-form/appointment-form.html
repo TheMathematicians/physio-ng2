@@ -1,0 +1,67 @@
+<ion-header>
+    <ion-navbar>
+        <ion-title center>
+            Appointment Form
+        </ion-title>
+    </ion-navbar>
+</ion-header>
+
+<ion-content>
+    <form novalidate [formGroup]="appointmentForm">
+        <ion-list>
+            <!--<ion-list-header></ion-list-header>-->
+            <ion-item>
+                <ion-label floating [ngClass]="{'label-md-danger':appointmentForm.controls['mobile'].invalid && appointmentForm.controls['mobile'].touched}">Mobile No *</ion-label>
+                <ion-input name="mobile" readonly formControlName="mobile" type="number" aria-required="true" required="required"></ion-input>
+            </ion-item>
+            <span *ngIf="appointmentForm.controls['mobile'].hasError('required') && appointmentForm.controls['mobile'].touched" class="has-error">Please enter required data</span>
+            <ion-item>
+                <ion-label floating [ngClass]="{'label-md-danger':appointmentForm.controls['name'].invalid && appointmentForm.controls['name'].touched}">Full Name *</ion-label>
+                <ion-input name="name" formControlName="name" type="text" aria-required="true" required="required"></ion-input>
+            </ion-item>
+            <span *ngIf="appointmentForm.controls['name'].hasError('required') && appointmentForm.controls['name'].touched" class="has-error">Please enter required data</span>
+            <ion-item>
+                <ion-label floating [ngClass]="{'label-md-danger':appointmentForm.controls['gender'].invalid && appointmentForm.controls['gender'].touched}">Gender *</ion-label>
+                <ion-select name="gender" formControlName="gender" required="required">
+                    <ion-option *ngFor="let gender of genderType" value={{gender.CODE}}>{{gender.DESC}}</ion-option>
+                </ion-select>
+            </ion-item>
+            <span *ngIf="appointmentForm.controls['gender'].hasError('required') && appointmentForm.controls['gender'].touched" class="has-error">Please enter required data</span>
+            <ion-item>
+                <ion-label floating [ngClass]="{'label-md-danger':appointmentForm.controls['age'].invalid && appointmentForm.controls['age'].touched}">Age *</ion-label>
+                <ion-input name="age" formControlName="age" type="number" aria-required="true" required="required"></ion-input>
+            </ion-item>
+            <span *ngIf="appointmentForm.controls['age'].hasError('required') && appointmentForm.controls['age'].touched" class="has-error">Please enter required data</span>
+            <ion-item>
+                <ion-label floating [ngClass]="{'label-md-danger':appointmentForm.controls['pin'].invalid && appointmentForm.controls['pin'].touched}">Pin *</ion-label>
+                <ion-input name="pin" min="000000" max="999999" formControlName="pin" type="number" aria-required="true" required="required"></ion-input>
+            </ion-item>
+            <span *ngIf="appointmentForm.controls['pin'].hasError('required') && appointmentForm.controls['pin'].touched" class="has-error">Please enter required data</span>
+            <ion-item>
+                <ion-label floating [ngClass]="{'label-md-danger':appointmentForm.controls['location'].invalid && appointmentForm.controls['location'].touched}">Location *</ion-label>
+                <ion-select name="location" formControlName="location" required="required">
+                    <ion-option *ngFor="let location of locations" value={{location.CODE}}>{{location.DESC}}</ion-option>
+                </ion-select>
+            </ion-item>
+            <span *ngIf="appointmentForm.controls['location'].hasError('required') && appointmentForm.controls['location'].touched" class="has-error">Please enter required data</span>
+            <ion-item>
+                <ion-label floating [ngClass]="{'label-md-danger':appointmentForm.controls['address'].invalid && appointmentForm.controls['address'].touched}">Address *</ion-label>
+                <ion-textarea name="address" formControlName="address" aria-required="true" required="required" clearInput></ion-textarea>
+            </ion-item>
+            <span *ngIf="appointmentForm.controls['address'].hasError('required') && appointmentForm.controls['address'].touched" class="has-error">Please enter required data</span>
+            <ion-item>
+                <ion-label floating [ngClass]="{'label-md-danger':appointmentForm.controls['problem'].invalid && appointmentForm.controls['problem'].touched}">Problem *</ion-label>
+                <ion-textarea name="problem" formControlName="problem" aria-required="true" required="required" clearInput></ion-textarea>
+            </ion-item>
+            <span *ngIf="appointmentForm.controls['problem'].hasError('required') && appointmentForm.controls['problem'].touched" class="has-error">Please enter required data</span>
+        </ion-list>
+    </form>
+</ion-content>
+<ion-footer>
+    <ion-toolbar text-center>
+        <button ion-button icon-right color="primary" (click)='onContinue()' [disabled]="appointmentForm.invalid">
+               Continue 
+               <ion-icon name="ios-arrow-forward" ></ion-icon>
+            </button>
+    </ion-toolbar>
+</ion-footer>
