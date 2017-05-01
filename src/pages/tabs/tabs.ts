@@ -1,7 +1,7 @@
 import { AppointmentForm } from '../appointment-form/appointment-form';
 import { Component } from '@angular/core';
 
-import { AboutPage } from '../about/about';
+import { LandingPage } from '../landing/landing';
 import { HomePage } from '../home/home';
 
 @Component({
@@ -10,7 +10,7 @@ import { HomePage } from '../home/home';
 export class TabsPage {
 
   tab1Root = HomePage;
-  tab2Root = AboutPage;
+  tab2Root = LandingPage;
   tab3Root = AppointmentForm;
 
   constructor() {}

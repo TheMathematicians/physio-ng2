@@ -4,7 +4,7 @@ import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MyApp } from './app.component';
 
-import { AboutPage } from '../pages/about/about';
+import { LandingPage } from '../pages/landing/landing';
 import { AppointmentForm } from '../pages/appointment-form/appointment-form';
 import { HomePage } from '../pages/home/home';
 import { TabsPage } from '../pages/tabs/tabs';
@@ -15,7 +15,7 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 @NgModule({
   declarations: [
     MyApp,
-    AboutPage,
+    LandingPage,
     AppointmentForm,
     HomePage,
     TabsPage
@@ -29,7 +29,7 @@ import { SplashScreen } from '@ionic-native/splash-screen';
   bootstrap: [IonicApp],
   entryComponents: [
     MyApp,
-    AboutPage,
+    LandingPage,
     AppointmentForm,
     HomePage,
     TabsPage
