@@ -58,11 +58,11 @@ page-landing {
             font-size: x-large !important;
         }
     }
-
     .submit-wrapper {
         position: relative;
-        left: 25%;
-        .submit, .submit-blinker {
+        left: 40%;
+        .submit,
+        .submit-blinker {
             position: absolute;
             left: 0;
             background: url(../../assets/images/ic_fingerprint_2x.png);
@@ -71,22 +71,18 @@ page-landing {
             background-size: 100% 100%;
             border: none;
         }
-        
         .submit {
             cursor: pointer;
         }
-        
         .submit-blinker {
             @include animation(zoom-fade 2s infinite);
         }
     }
-
     @include keyframes(zoom-fade) {
         0% {
             @include opacity(0.5);
             @include transform(scale(1));
         }
-        
         100% {
             @include opacity(0);
             @include transform(scale(1.7));

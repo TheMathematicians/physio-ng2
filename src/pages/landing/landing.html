@@ -1,8 +1,8 @@
 <ion-content padding>
-    <form novalidate>
+    <form novalidate [formGroup]="landingForm">
         <ion-item class="mobile-item-cls">
             <ion-label floating class="mobile-label-cls">Mobile No *</ion-label>
-            <ion-input class="mobile-input-cls" name="mobile" type="number" aria-required="true" required="required"></ion-input>
+            <ion-input formControlName="mobile" class="mobile-input-cls" name="mobile" type="number" aria-required="true" required="required"></ion-input>
         </ion-item>
         <!--<ion-item>-->
         <ion-grid>
@@ -11,7 +11,7 @@
                     <!--<button class="submit"></button>-->
                     <div class="submit-wrapper">
                         <div class="submit-blinker"></div>
-                        <button class="submit"></button>
+                        <button class="submit" (click)="onSubmit($event)"></button>
                     </div>
                 </ion-col>
             </ion-row>
