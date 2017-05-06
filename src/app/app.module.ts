@@ -12,7 +12,7 @@ import { TabsPage } from '../pages/tabs/tabs';
 import { AppointmentListModule } from './../pages/appointment-list/appointment-list.module';
 
 import { AppointmentService } from './shared/services/appointment.service';
-// import { ToasterService } from './shared/services/toaster.service';
+import { ToastService } from './shared/services/toast.service';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 
@@ -44,7 +44,8 @@ import { SplashScreen } from '@ionic-native/splash-screen';
     StatusBar,
     SplashScreen,
     { provide: ErrorHandler, useClass: IonicErrorHandler },
-    AppointmentService
+    AppointmentService,
+    ToastService
   ]
 })
 export class AppModule { }

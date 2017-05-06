@@ -2,6 +2,8 @@ import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 
+import { ToastService } from './../../app/shared/services/toast.service';
+
 @Component({
   selector: 'page-appointment-form',
   templateUrl: 'appointment-form.html'
@@ -15,13 +17,13 @@ export class AppointmentForm {
   public numberRex: RegExp = /^(\d)+$/;
   appointmentForm: FormGroup;
 
-  constructor(public navCtrl: NavController, public _fb: FormBuilder) {
+  constructor(public navCtrl: NavController, public _fb: FormBuilder, private toast: ToastService) {
     this.appointmentForm = this._fb.group({
-      mobile: ['9908764343', Validators.compose([Validators.required,Validators.minLength(10), Validators.maxLength(10), Validators.pattern(this.numberRex)])],
+      mobile: ['9908764343', Validators.compose([Validators.required, Validators.minLength(10), Validators.maxLength(10), Validators.pattern(this.numberRex)])],
       name: [null, Validators.compose([Validators.required, Validators.pattern(this.alphaRgx)])],
       gender: [null, Validators.required],
       age: [null, Validators.required],
-      pin: ['534302', Validators.compose([Validators.required,Validators.minLength(6), Validators.maxLength(6), Validators.pattern(this.numberRex)])],
+      pin: ['534302', Validators.compose([Validators.required, Validators.minLength(6), Validators.maxLength(6), Validators.pattern(this.numberRex)])],
       location: [null, Validators.required],
       address: [null, Validators.required],
       problem: [null, Validators.required]
@@ -34,6 +36,7 @@ export class AppointmentForm {
     this.getGender();
     this.pin = this.appointmentForm.value.pin;
     this.getLocation(this.pin);
+    this.toast.show("App Loaded!!");
   }
 
   //Hooks that are available before and after the page in question becomes active

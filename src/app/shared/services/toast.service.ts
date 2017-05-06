@@ -7,7 +7,7 @@ export class ToastService {
     constructor(public toastCtrl: ToastController) { }
 
     //to show toast
-    presentToast(message) {
+    show(message) {
         let toast = this.toastCtrl.create({
             message: message,
             duration: 3000,
