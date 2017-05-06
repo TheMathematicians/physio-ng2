@@ -1,3 +1,4 @@
+import { LoaderService } from './../../app/shared/services/loader.service';
 import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
@@ -17,7 +18,11 @@ export class AppointmentForm {
   public numberRex: RegExp = /^(\d)+$/;
   appointmentForm: FormGroup;
 
-  constructor(public navCtrl: NavController, public _fb: FormBuilder, private toast: ToastService) {
+  constructor(public navCtrl: NavController,
+    public _fb: FormBuilder,
+    private toast: ToastService,
+    private loader: LoaderService) {
+
     this.appointmentForm = this._fb.group({
       mobile: ['9908764343', Validators.compose([Validators.required, Validators.minLength(10), Validators.maxLength(10), Validators.pattern(this.numberRex)])],
       name: [null, Validators.compose([Validators.required, Validators.pattern(this.alphaRgx)])],
@@ -37,6 +42,9 @@ export class AppointmentForm {
     this.pin = this.appointmentForm.value.pin;
     this.getLocation(this.pin);
     this.toast.show("App Loaded!!");
+    this.loader.show();
+    this.loader.hide();
+
   }
 
   //Hooks that are available before and after the page in question becomes active
@@ -80,5 +88,6 @@ export class AppointmentForm {
   }
   onContinue() {
     console.log('on continue .. !!')
+    this.loader.hide();
   }
 }

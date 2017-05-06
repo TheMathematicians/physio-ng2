@@ -13,6 +13,7 @@ import { AppointmentListModule } from './../pages/appointment-list/appointment-l
 
 import { AppointmentService } from './shared/services/appointment.service';
 import { ToastService } from './shared/services/toast.service';
+import { LoaderService } from './shared/services/loader.service';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 
@@ -45,7 +46,8 @@ import { SplashScreen } from '@ionic-native/splash-screen';
     SplashScreen,
     { provide: ErrorHandler, useClass: IonicErrorHandler },
     AppointmentService,
-    ToastService
+    ToastService,
+    LoaderService
   ]
 })
 export class AppModule { }
