@@ -7,6 +7,10 @@ import { Appointment } from './../../../app/shared/models/appointment';
 })
 
 export class AppointmentTile {
+    private iconMap = {
+        male: 'man',
+        female: 'woman'
+    };
     @Input() appointment: Appointment;
     isDetailVisible: boolean = false;
 }
