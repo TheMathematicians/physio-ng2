@@ -1,3 +1,7 @@
+/**
+ * Ref: https://github.com/angular/angularfire2/blob/master/docs/3-retrieving-data-as-lists.md
+ */
+
 import { Injectable } from '@angular/core';
 
 import { Observable } from 'rxjs';
@@ -23,7 +27,17 @@ export class AppointmentService {
     }
 
     getAppointments() {
-        return this.db.list(this.appointmentsPath)
-            .map(appointments => appointments as Appointment[]);
+        return this.getAppointmentsRef(true)
+            .map(appointments => appointments.map(a => Object.assign({
+                key: a.key
+            }, a.val())) as Appointment[]);
+    }
+
+    create(appointment: Appointment) {
+        return this.getAppointmentsRef().push(appointment);
+    }
+
+    private getAppointmentsRef(preserveSnapshot: boolean = false) {
+        return this.db.list(this.appointmentsPath, { preserveSnapshot });
     }
 }

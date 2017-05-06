@@ -1,8 +1,13 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
-import { Appointment } from './../../app/shared/models/appointment';
-import { AppointmentService } from './../../app/shared/services/appointment.service';
+
 import { Observable } from 'rxjs';
+import 'rxjs/add/operator/do';
+
+import { Appointment } from './../../app/shared/models/appointment';
+
+import { AppointmentService } from './../../app/shared/services/appointment.service';
+import { LoaderService } from './../../app/shared/services/loader.service';
 
 /**
  * Generated class for the AppointmentList page.
@@ -22,10 +27,21 @@ export class AppointmentListPage {
   constructor(
     public navCtrl: NavController,
     public navParams: NavParams,
-    private appointmentService: AppointmentService) { }
+    private appointmentService: AppointmentService,
+    private loader: LoaderService
+  ) { }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad AppointmentList');
-    this.appointments = this.appointmentService.appointments;
+    this.appointments = this.appointmentService.appointments
+      .do(
+      appointments => {
+        debugger;
+        this.loader.hide()
+      },
+      error => this.loader.hide()
+      );
+
+    this.loader.show();
   }
 }

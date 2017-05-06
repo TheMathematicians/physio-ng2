@@ -4,24 +4,33 @@ import { LoadingController } from "ionic-angular";
 @Injectable()
 export class LoaderService {
 
-    public loader:any;
+    private loader: any;
+    private _isVisible: boolean;
+    get isVisible() {
+        return this._isVisible;
+    }
 
     constructor(public loadingCtrl: LoadingController) { }
-    getLoader(content?: string){
+
+    private getLoader(content?: string) {
         let loader = this.loadingCtrl.create({
-            content: content || "Please wait..."
+            content: content || ''
         });
         return loader;
     }
 
-    show(content?: string) {  
-       this.loader = this.getLoader(content)      
-        return this.loader.present();
+    show(content?: string) {
+        if (!this._isVisible) {
+            this.loader = this.getLoader(content)
+            this.loader.present();
+            this._isVisible = true;
+        }
     }
 
     hide() {
-        setTimeout(() => {
+        if (this._isVisible) {
             this.loader.dismiss();
-        }, 200);
+            this._isVisible = false;
+        }
     }
 }
