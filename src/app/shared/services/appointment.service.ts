@@ -12,9 +12,6 @@ import { Appointment } from './../models/appointment';
 export class AppointmentService {
     private appointmentsPath: string = '/appointments';
     private _appointments: Observable<Appointment[]>;
-    private dataStore: {
-        appointments: Appointment[]
-    };
 
     constructor(private db: AngularFireDatabase) {
     }
