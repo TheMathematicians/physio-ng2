@@ -1,3 +1,11 @@
 appointment-tile {
-    
+    .detail {
+        position: relative;
+        @include transition(max-height 1s ease);
+        max-height: 0;
+        overflow: hidden;
+        &.show {
+            max-height: 1000px;
+        }
+    }
 }

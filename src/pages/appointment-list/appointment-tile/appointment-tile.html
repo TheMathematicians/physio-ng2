@@ -1,6 +1,6 @@
 <ion-card ng-class="detailcard'" (click)="isDetailVisible=!isDetailVisible">
     <ion-card-content>
-        <div *ngIf="isDetailVisible">
+        <div class="detail" [class.show]="isDetailVisible">
             <ion-row>
                 <p>{{appointment.problem}}</p>
             </ion-row>
