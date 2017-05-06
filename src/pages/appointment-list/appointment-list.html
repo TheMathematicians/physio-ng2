@@ -14,5 +14,15 @@
 
 
 <ion-content padding>
+    {{appointments | async | json}}
     <appointment-tile *ngFor="let appointment of appointments | async" [appointment]="appointment"></appointment-tile>
 </ion-content>
+
+<!--
+  https://www.joshmorony.com/building-a-crud-ionic-2-application-with-firebase-angularfire/
+  https://github.com/angular/angularfire2/blob/master/docs/1-install-and-setup.md
+  https://console.firebase.google.com/project/physio-ng2-dev/overview
+  https://github.com/angular/angularfire2/blob/master/docs/2-retrieving-data-as-objects.md
+  https://blog.khophi.co/optimize-ionic-2-app-production/
+  https://firebase.google.com/docs/database/security/quickstart
+-->
