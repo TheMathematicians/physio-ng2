@@ -3,6 +3,11 @@ import { BrowserModule } from '@angular/platform-browser';
 import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
+
+import { AngularFireModule } from 'angularfire2';
+import { AngularFireDatabaseModule } from 'angularfire2/database';
+import { ENV } from './../config/environment.dev';
+
 import { MyApp } from './app.component';
 
 import { LandingPage } from '../pages/landing/landing';
@@ -31,7 +36,9 @@ import { SplashScreen } from '@ionic-native/splash-screen';
     FormsModule,
     HttpModule,
     ReactiveFormsModule,
-    AppointmentListModule
+    AppointmentListModule,
+    AngularFireModule.initializeApp(ENV.firebase),
+    AngularFireDatabaseModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [

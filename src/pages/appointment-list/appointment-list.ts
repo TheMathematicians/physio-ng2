@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { Appointment } from './../../app/shared/models/appointment';
 import { AppointmentService } from './../../app/shared/services/appointment.service';
-import { Subscription } from 'rxjs';
+import { Observable } from 'rxjs';
 
 /**
  * Generated class for the AppointmentList page.
@@ -17,8 +17,7 @@ import { Subscription } from 'rxjs';
 })
 export class AppointmentListPage {
 
-  appointments: Appointment[];
-  appointments$: Subscription;
+  appointments: Observable<Appointment[]>;
 
   constructor(
     public navCtrl: NavController,
@@ -27,10 +26,6 @@ export class AppointmentListPage {
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad AppointmentList');
-    this.appointments$ = this.appointmentService.appointments.subscribe(appointments => this.appointments = appointments);
-  }
-
-  ionViewWillUnload() {
-    this.appointments$.unsubscribe();
+    this.appointments = this.appointmentService.appointments;
   }
 }
