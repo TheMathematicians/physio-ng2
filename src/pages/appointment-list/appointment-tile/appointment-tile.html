@@ -1,16 +1,21 @@
-<ion-card>
+<ion-card ng-class="detailcard'" (click)="isDetailVisible=!isDetailVisible">
     <ion-card-content>
-        <ion-row>
-            <p>{{appointment.problem}}</p>
-        </ion-row>
-        <br/>
-        <ion-item>
-            <ion-icon name="person" item-left large></ion-icon>
-            <h1>{{appointment.patientName}} - {{appointment.age}}yrs</h1>
-        </ion-item>
-        <ion-item>
-            <ion-icon name="call" item-left large></ion-icon>
-            <h2>{{appointment.mobile}}</h2>
-        </ion-item>
+        <div *ngIf="isDetailVisible">
+            <ion-row>
+                <p>{{appointment.problem}}</p>
+            </ion-row>
+            <br/>
+        </div>
+        <div>
+            <ion-item>
+                <ion-icon name="person" item-left large></ion-icon>
+                <h1>{{appointment.patientName}} - {{appointment.age}}yrs</h1>
+            </ion-item>
+            <ion-item>
+                <ion-icon name="call" item-left large></ion-icon>
+                <h2>{{appointment.mobile}}</h2>
+            </ion-item>
+        </div>
+
     </ion-card-content>
 </ion-card>

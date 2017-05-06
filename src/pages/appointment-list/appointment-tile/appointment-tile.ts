@@ -8,4 +8,5 @@ import { Appointment } from './../../../app/shared/models/appointment';
 
 export class AppointmentTile {
     @Input() appointment: Appointment;
+    isDetailVisible: boolean = false;
 }
