@@ -1,4 +1,4 @@
-<ion-card ng-class="detailcard'" (click)="isDetailVisible=!isDetailVisible">
+<ion-card class="detailcard" (click)="isDetailVisible=!isDetailVisible">
     <ion-card-content>
         <div class="detail" [class.show]="isDetailVisible">
             <ion-row>
@@ -9,7 +9,7 @@
         <div>
             <ion-item>
                 <ion-icon [name]="iconMap[appointment.gender.toLowerCase()] || 'person'" item-left large></ion-icon>
-                <h1>{{appointment.patientName}} - {{appointment.age}}yrs</h1>
+                <h1 class="abstract">{{appointment.patientName}} - {{appointment.age}}yrs</h1>
             </ion-item>
             <ion-item>
                 <ion-icon name="call" item-left large></ion-icon>
