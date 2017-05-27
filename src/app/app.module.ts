@@ -16,9 +16,7 @@ import { HomePage } from '../pages/home/home';
 import { TabsPage } from '../pages/tabs/tabs';
 import { AppointmentListModule } from './../pages/appointment-list/appointment-list.module';
 
-import { AppointmentService } from './shared/services/appointment.service';
-import { ToastService } from './shared/services/toast.service';
-import { LoaderService } from './shared/services/loader.service';
+import { AppointmentService, LoaderService, ToastService } from './shared/services';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 

@@ -6,8 +6,7 @@ import 'rxjs/add/operator/do';
 
 import { Appointment } from './../../app/shared/models/appointment';
 
-import { AppointmentService } from './../../app/shared/services/appointment.service';
-import { LoaderService } from './../../app/shared/services/loader.service';
+import { AppointmentService, LoaderService } from './../../app/shared/services';
 
 /**
  * Generated class for the AppointmentList page.
@@ -35,9 +34,7 @@ export class AppointmentListPage {
     console.log('ionViewDidLoad AppointmentList');
     this.appointments = this.appointmentService.appointments
       .do(
-      appointments => {
-        this.loader.hide()
-      },
+      appointments => this.loader.hide(),
       error => this.loader.hide()
       );
 
