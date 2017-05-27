@@ -36,7 +36,6 @@ export class AppointmentListPage {
     this.appointments = this.appointmentService.appointments
       .do(
       appointments => {
-        debugger;
         this.loader.hide()
       },
       error => this.loader.hide()
