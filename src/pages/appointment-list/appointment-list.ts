@@ -40,4 +40,8 @@ export class AppointmentListPage {
 
     this.loader.show();
   }
+
+  showAppointmentForm(selectedAppointment: Appointment) {
+    console.log(selectedAppointment);
+  }
 }

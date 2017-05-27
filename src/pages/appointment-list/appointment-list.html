@@ -13,5 +13,5 @@
 </ion-header>
 
 <ion-content padding class="appointment-list-content">
-    <appointment-tile *ngFor="let appointment of appointments | async" [appointment]="appointment" (click)></appointment-tile>
+    <appointment-tile *ngFor="let appointment of appointments | async" [appointment]="appointment" (click)="showAppointmentForm(appointment)"></appointment-tile>
 </ion-content>
